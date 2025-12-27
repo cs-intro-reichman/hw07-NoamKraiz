@@ -13,16 +13,12 @@ public class Koch {
             StdDraw.line(x1, y1, x5, y5);
             return;
         }
-        double x2 = x1 + (x5 - x1) / 3.0;
-        double y2 = y1 + (y5 - y1) / 3.0;
-        double x4 = x1 + 2.0 * (x5 - x1) / 3.0;
-        double y4 = y1 + 2.0 * (y5 - y1) / 3.0;
-        double x3 = ((double)0.5 * (x4 - x2)) - ((double)(Math.sqrt(3) / 2.0) * (y4 - y2)) + x2;
-        double y3 = ((double)(Math.sqrt(3) / 2.0) * (x4 - x2)) + ((double)0.5 * (y4 - y2)) + y2;
-        curve(n - 1, x1, y1, x2, y2);
-        curve(n - 1, x2, y2, x3, y3);
-        curve(n - 1, x3, y3, x4, y4);
-        curve(n - 1, x4, y4, x5, y5);
+        double x3 = ((double)0.5 * ((double)(x1 + 2.0 * (x5 - x1) / 3.0) - (double)(x1 + (x5 - x1) / 3.0))) - ((double)(Math.sqrt(3) / 2.0) * ((double)(y1 + 2.0 * (y5 - y1) / 3.0) - (double)(y1 + (y5 - y1) / 3.0))) + (double)(x1 + (x5 - x1) / 3.0);
+        double y3 = ((double)(Math.sqrt(3) / 2.0) * ((double)(x1 + 2.0 * (x5 - x1) / 3.0) - (double)(x1 + (x5 - x1) / 3.0))) + ((double)0.5 * ((double)(y1 + 2.0 * (y5 - y1) / 3.0) - (double)(y1 + (y5 - y1) / 3.0))) + (double)(y1 + (y5 - y1) / 3.0);
+        curve(n - 1, x1, y1, (double)(x1 + (x5 - x1) / 3.0), (double)(y1 + (y5 - y1) / 3.0));
+        curve(n - 1, (double)(x1 + (x5 - x1) / 3.0), (double)(y1 + (y5 - y1) / 3.0), x3, y3);
+        curve(n - 1, x3, y3, (double)(x1 + 2.0 * (x5 - x1) / 3.0), (double)(y1 + 2.0 * (y5 - y1) / 3.0));
+        curve(n - 1, (double)(x1 + 2.0 * (x5 - x1) / 3.0), (double)(y1 + 2.0 * (y5 - y1) / 3.0), x5, y5);
     }
 
     public static void snowFlake(int n) {

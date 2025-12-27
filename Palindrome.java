@@ -8,11 +8,12 @@ public class Palindrome {
 	/** Checks if the given string is a palindrome. */
 	public static boolean isPalindrome(String s) {
 		//// Replace the followaing statement with your code
-		int mid = s.length() / 2;
-		for(int i=0; i< mid;){
-			if(s.charAt(i) != s.charAt(s.length()-1-i)) return false;
-			else return isPalindrome(s.substring(i++ , i--));
+		if (s.length() <= 1) {
+			return true;
 		}
-		return true;
+		if (s.charAt(0) != s.charAt(s.length() - 1)) {
+			return false; 
+		}
+		return isPalindrome(s.substring(1, s.length() - 1));
     }
 }

@@ -15,8 +15,7 @@ public class Sierpinski {
 	}
 	
 	// Does the actual drawing, recursively.
-	private static void sierpinski(int n, double x1, double x2, double x3,
-		                                 double y1, double y2, double y3) {
+	private static void sierpinski(int n, double x1, double x2, double x3, double y1, double y2, double y3) {
 		//// Replace this comment with your code
 		if(n==0) return;
 		StdDraw.line(x1, y1, x2, y2);
